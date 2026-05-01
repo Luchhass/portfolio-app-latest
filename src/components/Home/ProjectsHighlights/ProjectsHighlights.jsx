@@ -87,6 +87,7 @@ export default function ProjectsShowcase({ projects = dummyProjects }) {
   }
 
   function handleCardPointerMove(event) {
+    if (event.pointerType === "touch") return;
     if (dragRef.current.isDragging) return;
 
     pendingCardTiltRef.current = {
@@ -119,6 +120,8 @@ export default function ProjectsShowcase({ projects = dummyProjects }) {
   }
 
   function handlePointerDown(event) {
+    if (event.pointerType === "touch") return;
+
     const viewport = sliderRef.current;
 
     if (!viewport) return;
@@ -137,6 +140,8 @@ export default function ProjectsShowcase({ projects = dummyProjects }) {
   }
 
   function handlePointerMove(event) {
+    if (event.pointerType === "touch") return;
+
     const viewport = sliderRef.current;
     const dragState = dragRef.current;
 
@@ -180,7 +185,7 @@ export default function ProjectsShowcase({ projects = dummyProjects }) {
             <div
               ref={sliderRef}
               data-dragging={isDragging ? "true" : undefined}
-              className="-mx-4 -my-8 cursor-grab overflow-x-auto px-4 py-8 select-none touch-pan-y [overscroll-behavior-inline:contain] scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] data-[dragging=true]:cursor-grabbing data-[dragging=true]:scroll-auto [&::-webkit-scrollbar]:hidden"
+              className="-mx-4 -my-8 cursor-grab overflow-x-auto px-4 py-8 select-none touch-pan-x [overscroll-behavior-inline:contain] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] data-[dragging=true]:cursor-grabbing [&::-webkit-scrollbar]:hidden"
               onPointerDown={handlePointerDown}
               onPointerMove={handlePointerMove}
               onPointerUp={finishDrag}
