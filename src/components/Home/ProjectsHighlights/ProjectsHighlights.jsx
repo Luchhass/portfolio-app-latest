@@ -166,12 +166,12 @@ export default function ProjectsShowcase({ projects = dummyProjects }) {
 
   return (
     <section data-header-theme="dark" className="h-dvh overflow-hidden bg-[#141414] px-8 py-6 text-white md:px-10 md:py-8 lg:px-16 lg:py-12">
-      <div className="grid h-full min-h-0 grid-rows-[auto_minmax(0,1fr)] gap-7 md:gap-8 lg:grid-cols-[160px_minmax(0,1fr)_160px] lg:gap-x-5">
+      <div className="grid h-full min-h-0 content-center grid-rows-[auto_auto] gap-7 md:gap-8 lg:grid-cols-[160px_minmax(0,1fr)_160px] lg:gap-x-5">
         <p className="m-0 text-sm leading-none font-black tracking-[0.08em] uppercase">
           PROJECTS
         </p>
 
-        <div className="min-h-0 lg:col-start-2 lg:row-span-2">
+        <div className="min-h-0 min-w-0 lg:col-start-2 lg:row-span-2">
           <h2 className="m-0 mt-[-0.08em] text-[44px] leading-[0.78] font-black tracking-[-0.04em] uppercase md:text-[80px] lg:text-[120px]">
             Highlights
           </h2>
@@ -180,7 +180,7 @@ export default function ProjectsShowcase({ projects = dummyProjects }) {
             <div
               ref={sliderRef}
               data-dragging={isDragging ? "true" : undefined}
-              className="-mx-4 -my-8 cursor-grab overflow-x-auto px-4 py-8 select-none touch-pan-x [overscroll-behavior-inline:contain] scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] data-[dragging=true]:cursor-grabbing data-[dragging=true]:scroll-auto [&::-webkit-scrollbar]:hidden"
+              className="-mx-4 -my-8 cursor-grab overflow-x-auto px-4 py-8 select-none touch-pan-y [overscroll-behavior-inline:contain] scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] data-[dragging=true]:cursor-grabbing data-[dragging=true]:scroll-auto [&::-webkit-scrollbar]:hidden"
               onPointerDown={handlePointerDown}
               onPointerMove={handlePointerMove}
               onPointerUp={finishDrag}
