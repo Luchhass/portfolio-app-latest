@@ -43,7 +43,7 @@ export default function AboutMeAccordion() {
   }
 
   return (
-    <section data-header-theme="light" className="flex min-h-svh items-center bg-white px-8 py-6 text-black md:px-10 md:py-8 lg:px-16 lg:py-12">
+    <section data-header-theme="light" className="flex h-dvh items-center bg-white px-8 py-6 text-black md:px-10 md:py-8 lg:px-16 lg:py-12">
       <svg className="absolute h-0 w-0" aria-hidden="true">
         <defs>
           <linearGradient

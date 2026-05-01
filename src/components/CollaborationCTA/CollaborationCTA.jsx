@@ -4,7 +4,7 @@ export default function CollaborationCTA() {
   return (
     <section
       data-header-theme="dark"
-      className="grid min-h-svh grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] bg-black px-8 py-6 text-white md:px-10 md:py-8 lg:px-16 lg:py-12"
+      className="grid h-dvh grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] bg-black px-8 py-6 text-white md:px-10 md:py-8 lg:px-16 lg:py-12"
       aria-labelledby="collaboration-title"
     >
       <div className="row-start-2 flex flex-col items-center justify-center text-center">

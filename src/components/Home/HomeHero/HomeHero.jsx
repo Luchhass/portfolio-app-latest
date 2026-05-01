@@ -2,7 +2,7 @@ import HeroContactButton from "@/components/ContactButton/ContactButton";
 
 export default function HomeHero() {
   return (
-    <section data-header-theme="dark" className="grid h-screen grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] bg-black px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-12">
+    <section data-header-theme="dark" className="grid h-dvh grid-rows-[minmax(0,1fr)_auto_minmax(0,1fr)] bg-black px-8 py-6 md:px-10 md:py-8 lg:px-16 lg:py-12">
       <div className="row-start-2 flex items-center justify-center">
         <h1 className="m-0 flex flex-col items-center text-center text-[44px] leading-[0.9] font-black tracking-[-0.04em] text-white uppercase md:text-[80px] lg:text-[120px]">
           <span>CREATIVE</span>
