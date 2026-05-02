@@ -5,8 +5,8 @@ export default function ProjectsIntro() {
       className="flex h-dvh items-center overflow-hidden bg-white px-8 py-6 text-black md:px-10 md:py-8 lg:px-16 lg:py-12"
       aria-labelledby="projects-intro-title"
     >
-      <div className="grid w-full max-w-205 grid-cols-[40px_minmax(0,1fr)] gap-x-4 md:grid-cols-[120px_minmax(0,1fr)] md:gap-x-5 lg:grid-cols-[160px_minmax(0,1fr)]">
-        <p className="m-0 inline-flex items-center gap-2 self-start pt-3 text-[13px] leading-none font-black tracking-[0.08em] text-black/55 uppercase md:text-sm">
+      <div className="grid w-full max-w-205 grid-cols-1 gap-y-5 md:grid-cols-[120px_minmax(0,1fr)] md:gap-x-5 md:gap-y-0 lg:grid-cols-[160px_minmax(0,1fr)]">
+        <p className="m-0 inline-flex items-center gap-2 self-start text-[13px] leading-none font-black tracking-[0.08em] text-black/55 uppercase md:pt-3 md:text-sm">
           <span
             className="gradient-action-dot h-2 w-2 rounded-full"
             aria-hidden="true"
@@ -14,7 +14,7 @@ export default function ProjectsIntro() {
           Archive
         </p>
 
-        <div className="col-start-2 grid min-w-0 gap-5 md:gap-7">
+        <div className="grid min-w-0 gap-5 md:col-start-2 md:gap-7">
           <h2
             id="projects-intro-title"
             className="m-0 flex flex-col text-[44px] leading-[0.9] font-black tracking-[-0.04em] uppercase md:text-[80px] lg:text-[120px]"
