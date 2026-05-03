@@ -1,4 +1,4 @@
-import HeroContactButton from "@/components/ContactButton/ContactButton";
+import GradientActionButton from "@/components/ContactButton/ContactButton";
 
 export default function CollaborationCTA() {
   return (
@@ -21,7 +21,7 @@ export default function CollaborationCTA() {
           Let&apos;s turn it into a polished web experience.
         </p>
 
-        <HeroContactButton
+        <GradientActionButton
           className="mt-8 w-fit! px-8 md:mt-10"
           href="/contact"
           id="collaboration-contact"

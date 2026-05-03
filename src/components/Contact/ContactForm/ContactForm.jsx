@@ -32,10 +32,10 @@ export default function ContactForm() {
   return (
     <section
       data-header-theme="light"
-      className="grid min-h-svh content-center overflow-hidden bg-white px-8 py-6 text-black md:px-10 md:py-8 lg:px-16 lg:py-12"
+      className="min-h-dvh overflow-hidden bg-white px-8 py-20 text-black md:px-10 md:py-24 lg:px-16 lg:py-32"
       aria-labelledby="contact-form-title"
     >
-      <div className="grid min-h-0 w-full grid-cols-[40px_minmax(0,1fr)] gap-x-4 md:grid-cols-[120px_minmax(0,1fr)] md:gap-x-5 lg:grid-cols-[160px_minmax(0,1fr)_160px] lg:items-start lg:gap-x-5">
+      <div className="grid w-full grid-cols-[40px_minmax(0,1fr)] gap-x-4 md:grid-cols-[120px_minmax(0,1fr)] md:gap-x-5 lg:grid-cols-[160px_minmax(0,1fr)_160px] lg:items-start lg:gap-x-5">
         <p className="m-0 flex items-center gap-2 self-start text-[13px] leading-none font-black tracking-[0.08em] text-black/55 uppercase md:text-sm">
           <span
             className="gradient-action-dot h-2 w-2 rounded-full"
@@ -44,15 +44,15 @@ export default function ContactForm() {
           Contact
         </p>
 
-        <div className="col-span-2 mt-6 grid min-w-0 gap-8 md:mt-7 md:gap-10 lg:col-start-2 lg:col-span-1 lg:row-start-1 lg:mt-0 lg:grid-cols-[minmax(0,0.95fr)_minmax(400px,0.72fr)] lg:items-start lg:gap-12">
+        <div className="col-span-2 mt-6 grid min-w-0 gap-8 md:mt-7 md:gap-10 lg:col-start-2 lg:col-span-1 lg:row-start-1 lg:mt-0 lg:grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] lg:items-start lg:gap-12">
           <div className="min-w-0">
             <h2
               id="contact-form-title"
               className="m-0 text-[44px] leading-[0.9] font-black tracking-[-0.04em] uppercase md:text-[80px] lg:text-[120px]"
             >
-              Project
+              Start
               <br />
-              <span className="gradient-text-flow">Brief</span>
+              <span className="gradient-text-flow">Project</span>
             </h2>
 
             <p className="m-0 mt-5 max-w-md text-[13px] leading-tight font-medium text-black/60 md:mt-7 md:text-sm">
@@ -173,7 +173,7 @@ export default function ContactForm() {
               />
             </label>
 
-            <div className="mt-5 flex flex-col gap-4 md:mt-6 md:flex-row md:items-center md:justify-between">
+            <div className="mt-5 flex flex-col gap-4 md:mt-6 md:flex-row md:flex-wrap md:items-center md:justify-between">
               <p className="m-0 max-w-58 text-[10px] leading-[1.2] font-bold tracking-[0.12em] text-black/45 uppercase">
                 Usually replies after reviewing scope and availability.
               </p>

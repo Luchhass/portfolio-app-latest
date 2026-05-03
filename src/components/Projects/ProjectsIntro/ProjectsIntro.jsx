@@ -2,7 +2,7 @@ export default function ProjectsIntro() {
   return (
     <section
       data-header-theme="light"
-      className="flex h-dvh items-center overflow-hidden bg-white px-8 py-6 text-black md:px-10 md:py-8 lg:px-16 lg:py-12"
+      className="min-h-dvh overflow-hidden bg-white px-8 py-20 text-black md:px-10 md:py-24 lg:px-16 lg:py-32"
       aria-labelledby="projects-intro-title"
     >
       <div className="grid w-full max-w-205 grid-cols-1 gap-y-5 md:grid-cols-[120px_minmax(0,1fr)] md:gap-x-5 md:gap-y-0 lg:grid-cols-[160px_minmax(0,1fr)]">

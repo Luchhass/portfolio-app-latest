@@ -1,5 +1,3 @@
-import HeroContactButton from "@/components/ContactButton/ContactButton";
-
 export default function ContactHero() {
   return (
     <section
@@ -19,7 +17,7 @@ export default function ContactHero() {
       <div className="row-start-3 grid w-full grid-cols-2 items-end gap-x-4 gap-y-5 self-end md:flex md:items-end md:justify-between md:gap-6">
         <span></span>
 
-        <p className="col-span-2 row-start-1 m-0 max-w-none text-center text-[13px] leading-tight font-medium text-white/90 md:max-w-md md:text-sm lg:text-sm">
+        <p className="col-span-2 row-start-1 m-0 max-w-md justify-self-center text-center text-[13px] leading-tight font-medium text-white/90 md:max-w-md md:text-sm lg:text-sm">
           Share the idea, goal or interface you want to build. I&apos;ll help
           turn it into a clean, responsive and polished frontend experience.
         </p>

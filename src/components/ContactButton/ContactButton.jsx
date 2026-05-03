@@ -1,10 +1,11 @@
 "use client";
 
-export default function HeroContactButton({
+export default function GradientActionButton({
   className = "",
-  href = "mailto:hello@digitalpro.com",
-  id = "contact",
-  label = "CONTACT ME",
+  href = "",
+  id = "",
+  label = "",
+  onClick,
 }) {
   function updateFillOrigin(event) {
     const button = event.currentTarget;
@@ -26,6 +27,7 @@ export default function HeroContactButton({
       id={id}
       href={href}
       className={`gradient-action-button group pointer-events-auto relative isolate inline-flex h-14 w-full items-center justify-center gap-2 overflow-hidden bg-transparent px-5 text-xs leading-none font-black whitespace-nowrap text-white no-underline md:w-41.75 ${className}`}
+      onClick={onClick}
       onPointerEnter={updateFillOrigin}
       onPointerLeave={updateFillOrigin}
     >

@@ -170,8 +170,8 @@ export default function ProjectsShowcase({ projects = dummyProjects }) {
   }
 
   return (
-    <section data-header-theme="dark" className="h-dvh overflow-hidden bg-[#141414] px-8 py-6 text-white md:px-10 md:py-8 lg:px-16 lg:py-12">
-      <div className="grid h-full min-h-0 content-center grid-rows-[auto_auto] gap-7 md:gap-8 lg:grid-cols-[160px_minmax(0,1fr)_160px] lg:gap-x-5">
+    <section data-header-theme="dark" className="min-h-dvh overflow-hidden bg-[#141414] px-8 py-20 text-white md:px-10 md:py-24 lg:px-16 lg:py-32">
+      <div className="grid min-h-0 grid-rows-[auto_auto] gap-7 md:gap-8 lg:grid-cols-[160px_minmax(0,1fr)_160px] lg:gap-x-5">
         <p className="m-0 text-sm leading-none font-black tracking-[0.08em] uppercase">
           PROJECTS
         </p>

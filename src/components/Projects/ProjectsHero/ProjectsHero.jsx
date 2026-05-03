@@ -1,4 +1,4 @@
-import HeroContactButton from "@/components/ContactButton/ContactButton";
+import GradientActionButton from "@/components/ContactButton/ContactButton";
 
 export default function ProjectsHero() {
   return (
@@ -39,7 +39,11 @@ export default function ProjectsHero() {
         </p>
 
         <div className="col-start-2 row-start-2 flex justify-end">
-          <HeroContactButton />
+          <GradientActionButton
+            href="/contact"
+            id="projects-hero-contact"
+            label="CONTACT ME"
+          />
         </div>
       </div>
     </section>

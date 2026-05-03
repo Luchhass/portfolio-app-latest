@@ -189,6 +189,7 @@ export default function Footer() {
 
                 <span
                   className="gradient-action-border pointer-events-none z-20 rounded-full"
+                  style={{ padding: "1.5px" }}
                   aria-hidden="true"
                 />
 

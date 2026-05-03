@@ -190,21 +190,21 @@ export default function Header() {
           onClick={() => setIsMenuOpen((current) => !current)}
         >
           <span
-            className={`absolute top-1/2 right-0 h-0.5 w-7 rounded-full bg-current transition-[transform,opacity,background,color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-[linear-gradient(90deg,#6768ff,#a53cdd,#ee4b67)] ${
+            className={`absolute top-1/2 right-0 h-0.75 w-7 rounded-full bg-current transition-[transform,opacity,background,color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-[linear-gradient(90deg,#6768ff,#a53cdd,#ee4b67)] ${
               isMenuOpen ? "translate-y-0 rotate-45" : "-translate-y-2"
             }`}
             aria-hidden="true"
           />
 
           <span
-            className={`absolute top-1/2 right-0 h-0.5 w-7 rounded-full bg-current transition-[transform,opacity,background,color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-[linear-gradient(90deg,#6768ff,#a53cdd,#ee4b67)] ${
+            className={`absolute top-1/2 right-0 h-0.75 w-7 rounded-full bg-current transition-[transform,opacity,background,color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-[linear-gradient(90deg,#6768ff,#a53cdd,#ee4b67)] ${
               isMenuOpen ? "translate-y-0 scale-x-0 opacity-0" : "translate-y-0"
             }`}
             aria-hidden="true"
           />
 
           <span
-            className={`absolute top-1/2 right-0 h-0.5 w-7 rounded-full bg-current transition-[transform,opacity,background,color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-[linear-gradient(90deg,#6768ff,#a53cdd,#ee4b67)] ${
+            className={`absolute top-1/2 right-0 h-0.75 w-7 rounded-full bg-current transition-[transform,opacity,background,color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-[linear-gradient(90deg,#6768ff,#a53cdd,#ee4b67)] ${
               isMenuOpen ? "translate-y-0 -rotate-45" : "translate-y-2"
             }`}
             aria-hidden="true"
@@ -304,6 +304,7 @@ export default function Header() {
 
                     <span
                       className="gradient-action-border pointer-events-none z-20 rounded-full"
+                      style={{ padding: "1.5px" }}
                       aria-hidden="true"
                     />
 

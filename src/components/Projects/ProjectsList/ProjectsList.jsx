@@ -105,7 +105,7 @@ export default function ProjectsList({ projects = projectsList }) {
   return (
     <section
       data-header-theme="dark"
-      className="min-h-dvh bg-[#141414] px-8 py-12 text-white md:px-10 md:py-16 lg:px-16 lg:py-20"
+      className="min-h-dvh bg-[#141414] px-8 py-20 text-white md:px-10 md:py-24 lg:px-16 lg:py-32"
       aria-labelledby="projects-list-title"
     >
       <div className="grid min-h-0 gap-7 md:gap-8 lg:grid-cols-[160px_minmax(0,1fr)_160px] lg:gap-x-5">

@@ -1,34 +1,73 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { Code2, Sparkles, Workflow } from "lucide-react";
 
-const accordionItems = [
+const techGroups = [
   {
-    id: "build",
-    title: "What I Build",
+    id: "core",
+    title: "Core Frontend",
     description:
-      "I create responsive web interfaces that look clean, feel modern and work smoothly across different screens. My focus is on building pages that are easy to understand, visually balanced and comfortable to use.",
+      "The base I use for structure, styling, behavior, typing and scalable CSS details.",
     Icon: Code2,
+    items: [
+      { name: "HTML5", logo: "/tech-logos/html5.svg" },
+      { name: "CSS3", logo: "/tech-logos/css3.svg" },
+      { name: "JavaScript", logo: "/tech-logos/javascript.svg" },
+      { name: "TypeScript", logo: "/tech-logos/typescript.svg" },
+      { name: "Sass", logo: "/tech-logos/sass.svg" },
+    ],
   },
   {
-    id: "details",
-    title: "What I Care About",
+    id: "interface",
+    title: "Interface Stack",
     description:
-      "I pay attention to layout, spacing, motion and small interface details that make a website feel more polished. I like when every section has a clear purpose, a strong visual rhythm and a smooth interaction flow.",
+      "The stack I use to build responsive interfaces, reusable components and polished layouts.",
     Icon: Sparkles,
+    items: [
+      { name: "React", logo: "/tech-logos/react.svg" },
+      { name: "Next.js", logo: "/tech-logos/nextjs.svg" },
+      { name: "Tailwind CSS", logo: "/tech-logos/tailwindcss.svg" },
+      { name: "Bootstrap", logo: "/tech-logos/bootstrap.svg" },
+      { name: "Lucide", logo: "/tech-logos/lucide.svg" },
+    ],
   },
   {
     id: "workflow",
-    title: "How I Work",
+    title: "Development Workflow",
     description:
-      "I like building step by step, keeping components organized and making each section feel clear and intentional. I usually start from the structure, refine the visual details and improve the experience without making the design feel complicated.",
+      "The tools that help me version, format, ship and keep the development process organized.",
     Icon: Workflow,
+    items: [
+      { name: "Git", logo: "/tech-logos/git.svg" },
+      { name: "GitHub", logo: "/tech-logos/github.svg" },
+      { name: "Vercel", logo: "/tech-logos/vercel.svg" },
+      { name: "Vite", logo: "/tech-logos/vite.svg" },
+      { name: "ESLint", logo: "/tech-logos/eslint.svg" },
+      { name: "Prettier", logo: "/tech-logos/prettier.svg" },
+      { name: "npm", logo: "/tech-logos/npm.svg" },
+      { name: "Yarn", logo: "/tech-logos/yarn.svg" },
+      { name: "VS Code", logo: "/tech-logos/vscode.svg" },
+      { name: "Postman", logo: "/tech-logos/postman.svg" },
+    ],
+  },
+  {
+    id: "product",
+    title: "Product Collaboration",
+    description:
+      "The apps I use while planning screens, discussing details and tracking real product work.",
+    Icon: Sparkles,
+    items: [
+      { name: "Figma", logo: "/tech-logos/figma.svg" },
+      { name: "Discord", logo: "/tech-logos/discord.svg" },
+      { name: "Jira", logo: "/tech-logos/jira.svg" },
+    ],
   },
 ];
 
-export default function AboutMeAccordion() {
-  const [openId, setOpenId] = useState(accordionItems[0].id);
+export default function TechStackAccordion() {
+  const [openId, setOpenId] = useState(techGroups[0].id);
 
   function updateTitleFillOrigin(event) {
     const button = event.currentTarget;
@@ -43,11 +82,14 @@ export default function AboutMeAccordion() {
   }
 
   return (
-    <section data-header-theme="light" className="min-h-dvh bg-white px-8 py-20 text-black md:px-10 md:py-24 lg:px-16 lg:py-32">
+    <section
+      data-header-theme="light"
+      className="min-h-dvh bg-white px-8 py-20 text-black md:px-10 md:py-24 lg:px-16 lg:py-32"
+    >
       <svg className="absolute h-0 w-0" aria-hidden="true">
         <defs>
           <linearGradient
-            id="accordion-icon-gradient"
+            id="tech-stack-icon-gradient"
             x1="-1"
             y1="0"
             x2="2"
@@ -71,12 +113,12 @@ export default function AboutMeAccordion() {
 
       <div className="grid w-full max-w-205 grid-cols-[40px_minmax(0,1fr)] gap-x-4 md:grid-cols-[120px_minmax(0,1fr)] md:gap-x-5 lg:grid-cols-[160px_minmax(0,1fr)]">
         <h2 className="col-start-2 m-0 flex flex-col text-[44px] leading-[0.9] font-black tracking-[-0.04em] uppercase md:text-[80px] lg:text-[120px]">
-          <span>ABOUT</span>
-          <span className="gradient-text-flow">ME</span>
+          <span>TOOLS</span>
+          <span className="gradient-text-flow">I USE</span>
         </h2>
 
         <div className="col-span-2 mt-8 border-t border-black/10 md:mt-10">
-          {accordionItems.map((item) => {
+          {techGroups.map((item) => {
             const isOpen = openId === item.id;
             const Icon = item.Icon;
 
@@ -86,7 +128,7 @@ export default function AboutMeAccordion() {
                 className="grid grid-cols-[40px_minmax(0,1fr)] gap-x-4 border-b border-black/10 py-5 md:grid-cols-[120px_minmax(0,1fr)] md:gap-x-5 md:py-6 lg:grid-cols-[160px_minmax(0,1fr)]"
               >
                 <Icon
-                  color="url(#accordion-icon-gradient)"
+                  color="url(#tech-stack-icon-gradient)"
                   strokeWidth={2.3}
                   className="gradient-icon-flow mt-1 h-5 w-5 md:h-6 md:w-6"
                   aria-hidden="true"
@@ -97,7 +139,7 @@ export default function AboutMeAccordion() {
                     type="button"
                     className="gradient-title-button w-full cursor-pointer border-0 bg-transparent p-0 text-left"
                     aria-expanded={isOpen}
-                    aria-controls={`about-panel-${item.id}`}
+                    aria-controls={`tech-panel-${item.id}`}
                     data-active={isOpen ? "true" : undefined}
                     onClick={() => setOpenId(item.id)}
                     onPointerEnter={updateTitleFillOrigin}
@@ -116,7 +158,7 @@ export default function AboutMeAccordion() {
                   </button>
 
                   <div
-                    id={`about-panel-${item.id}`}
+                    id={`tech-panel-${item.id}`}
                     className={`grid overflow-hidden transition-[grid-template-rows,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                       isOpen
                         ? "grid-rows-[1fr] opacity-100"
@@ -124,9 +166,33 @@ export default function AboutMeAccordion() {
                     }`}
                   >
                     <div className="min-h-0">
-                      <p className="m-0 max-w-md pt-2 text-[13px] leading-tight font-medium text-black/75 md:text-sm">
+                      <p className="m-0 max-w-md pt-2 text-[13px] leading-tight font-medium text-black/70 md:text-sm">
                         {item.description}
                       </p>
+
+                      <ul className="m-0 flex max-w-xl list-none flex-wrap gap-x-5 gap-y-4 p-0 pt-4 md:gap-x-6">
+                        {item.items.map((tech) => (
+                          <li
+                            key={tech.name}
+                            className="flex w-16.5 min-w-0 flex-col items-center gap-2 text-center md:w-18.5"
+                          >
+                            <span className="relative block h-7 w-7 md:h-8 md:w-8">
+                              <Image
+                                src={tech.logo}
+                                alt=""
+                                fill
+                                sizes="32px"
+                                className="object-contain"
+                                unoptimized
+                              />
+                            </span>
+
+                            <span className="max-w-full text-center text-[12px] leading-tight font-medium text-black/70 md:text-[13px]">
+                              {tech.name}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>
