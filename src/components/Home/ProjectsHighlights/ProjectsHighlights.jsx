@@ -170,18 +170,22 @@ export default function ProjectsShowcase({ projects = dummyProjects }) {
   }
 
   return (
-    <section data-header-theme="dark" className="min-h-dvh overflow-hidden bg-[#141414] px-8 py-20 text-white md:px-10 md:py-24 lg:px-16 lg:py-32">
+    <section data-header-theme="dark" data-scroll-reveal="sequence" className="min-h-dvh overflow-hidden bg-[#141414] px-8 py-20 text-white md:px-10 md:py-24 lg:px-16 lg:py-32">
       <div className="grid min-h-0 grid-rows-[auto_auto] gap-7 md:gap-8 lg:grid-cols-[160px_minmax(0,1fr)_160px] lg:gap-x-5">
-        <p className="m-0 text-sm leading-none font-black tracking-[0.08em] uppercase">
-          PROJECTS
+        <p data-reveal-part="kicker" className="m-0 text-sm leading-none font-black tracking-[0.08em] uppercase">
+          <span data-reveal-inner className="block">
+            PROJECTS
+          </span>
         </p>
 
         <div className="min-h-0 min-w-0 lg:col-start-2 lg:row-span-2">
-          <h2 className="m-0 mt-[-0.08em] text-[44px] leading-[0.78] font-black tracking-[-0.04em] uppercase md:text-[80px] lg:text-[120px]">
-            Highlights
+          <h2 data-reveal-part="title" className="m-0 mt-[-0.08em] text-[44px] leading-[0.78] font-black tracking-[-0.04em] uppercase md:text-[80px] lg:text-[120px]">
+            <span data-reveal-inner className="block">
+              Highlights
+            </span>
           </h2>
 
-          <div className="mt-6 md:mt-8">
+          <div data-reveal-part="content" className="mt-6 md:mt-8">
             <div
               ref={sliderRef}
               data-dragging={isDragging ? "true" : undefined}

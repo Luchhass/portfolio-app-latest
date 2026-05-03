@@ -105,24 +105,28 @@ export default function ProjectsList({ projects = projectsList }) {
   return (
     <section
       data-header-theme="dark"
+      data-scroll-reveal="sequence"
       className="min-h-dvh bg-[#141414] px-8 py-20 text-white md:px-10 md:py-24 lg:px-16 lg:py-32"
       aria-labelledby="projects-list-title"
     >
       <div className="grid min-h-0 gap-7 md:gap-8 lg:grid-cols-[160px_minmax(0,1fr)_160px] lg:gap-x-5">
-        <p className="m-0 text-sm leading-none font-black tracking-[0.08em] uppercase">
-          PROJECTS
+        <p data-reveal-part="kicker" className="m-0 text-sm leading-none font-black tracking-[0.08em] uppercase">
+          <span data-reveal-inner className="block">
+            PROJECTS
+          </span>
         </p>
 
         <div className="min-w-0 lg:col-start-2">
           <h2
             id="projects-list-title"
+            data-reveal-part="title"
             className="m-0 mt-[-0.08em] text-[44px] leading-[0.78] font-black tracking-[-0.04em] uppercase md:text-[80px] lg:text-[120px]"
           >
-            Selected
-            <br className="md:hidden" /> Work
+            <span className="block">Selected</span>
+            <span className="block">Work</span>
           </h2>
 
-          <div className="mt-6 grid gap-4 md:mt-8 md:grid-cols-2 lg:grid-cols-3">
+          <div data-reveal-part="content" className="mt-6 grid gap-4 md:mt-8 md:grid-cols-2 lg:grid-cols-3">
             {projectCards.map((project, index) => {
               const itemNumber = String(index + 1).padStart(2, "0");
               const isExternalLink = project.href.startsWith("http");

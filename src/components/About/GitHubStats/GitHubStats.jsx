@@ -17,6 +17,7 @@ export default function GitHubStats() {
   return (
     <section
       data-header-theme="dark"
+      data-scroll-reveal="sequence"
       className="min-h-dvh bg-[#141414] px-8 py-20 text-white md:px-10 md:py-24 lg:px-16 lg:py-32"
       aria-labelledby="github-statistics-title"
     >
@@ -25,27 +26,34 @@ export default function GitHubStats() {
           href="https://github.com/luchhass"
           target="_blank"
           rel="noreferrer"
+          data-reveal-part="kicker"
           className="m-0 w-fit text-sm leading-none font-black tracking-[0.08em] text-white uppercase no-underline transition-colors duration-200 hover:text-white/65 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/40"
         >
-          @luchhass
+          <span data-reveal-inner className="block">
+            @luchhass
+          </span>
         </a>
 
         <div className="min-w-0 lg:col-start-2">
           <h2
             id="github-statistics-title"
+            data-reveal-part="title"
             className="m-0 mt-[-0.08em] text-[44px] leading-[0.78] font-black tracking-[-0.04em] uppercase md:text-[80px] lg:text-[120px]"
           >
-            GitHub
-            <br /> Statistics
+            <span className="block">GitHub</span>
+            <span className="block">Statistics</span>
           </h2>
 
-          <p className="m-0 mt-6 max-w-2xl text-[15px] leading-tight font-medium text-white/55 md:mt-8 md:text-lg">
-            Real-time insights into development activity. From repository
-            management to commit history, track the development flow.
-            Highlighting the dedication behind exceptional digital experiences.
+          <p data-reveal-part="content" className="m-0 mt-6 max-w-2xl text-[15px] leading-tight font-medium text-white/55 md:mt-8 md:text-lg">
+            <span data-reveal-inner className="block">
+              Real-time insights into development activity. From repository
+              management to commit history, track the development flow.
+              Highlighting the dedication behind exceptional digital
+              experiences.
+            </span>
           </p>
 
-          <div className="mt-8 grid border-t border-white/10 md:mt-10 md:grid-cols-3">
+          <div data-reveal-part="content" className="mt-8 grid border-t border-white/10 md:mt-10 md:grid-cols-3">
             {githubStats.map((stat) => (
               <div
                 key={stat.label}

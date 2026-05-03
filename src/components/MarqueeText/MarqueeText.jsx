@@ -1,6 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 function getDurationSeconds(duration) {
   if (typeof duration === "number") {
@@ -23,6 +28,9 @@ export default function MarqueeText({
   duration = "44s",
   repeat = 12,
 }) {
+  const sectionRef = useRef(null);
+  const revealMaskRef = useRef(null);
+  const revealInnerRef = useRef(null);
   const trackRef = useRef(null);
   const groupRef = useRef(null);
 
@@ -32,6 +40,95 @@ export default function MarqueeText({
   const items = useMemo(
     () => Array.from({ length: repeat }, (_, index) => index),
     [repeat],
+  );
+
+  useGSAP(
+    () => {
+      const section = sectionRef.current;
+      const mask = revealMaskRef.current;
+      const inner = revealInnerRef.current;
+
+      if (!section || !mask || !inner) return;
+
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      );
+
+      if (prefersReducedMotion.matches) return;
+
+      let timeline = null;
+
+      function resetReveal() {
+        timeline?.kill();
+        gsap.killTweensOf([mask, inner]);
+        gsap.set(mask, { clipPath: "inset(-18% -12% 0% -12%)" });
+        gsap.set(inner, {
+          autoAlpha: 1,
+          yPercent: 115,
+          rotateX: -8,
+          transformOrigin: "50% 100%",
+          willChange: "transform",
+        });
+      }
+
+      function playReveal() {
+        resetReveal();
+        timeline = gsap.timeline({
+          defaults: {
+            ease: "power4.out",
+            overwrite: true,
+          },
+          onComplete: () => {
+            gsap.set(mask, { clearProps: "clipPath" });
+          },
+        });
+
+        timeline.to(inner, {
+          yPercent: 0,
+          rotateX: 0,
+          duration: 0.78,
+          clearProps: "transform,willChange",
+        });
+      }
+
+      function playHide() {
+        timeline?.kill();
+        gsap.killTweensOf([mask, inner]);
+        gsap.set(mask, { clipPath: "inset(-18% -12% 0% -12%)" });
+        timeline = gsap.to(inner, {
+          yPercent: 115,
+          rotateX: -8,
+          transformOrigin: "50% 100%",
+          duration: 0.36,
+          ease: "power2.inOut",
+          overwrite: true,
+          clearProps: "willChange",
+        });
+      }
+
+      resetReveal();
+
+      const trigger = ScrollTrigger.create({
+        trigger: section,
+        start: "top 78%",
+        end: "bottom 18%",
+        onEnter: playReveal,
+        onEnterBack: playReveal,
+        onLeave: playHide,
+        onLeaveBack: playHide,
+      });
+
+      return () => {
+        trigger.kill();
+        timeline?.kill();
+        gsap.killTweensOf([mask, inner]);
+        gsap.set([mask, inner], {
+          clearProps:
+            "transform,opacity,visibility,clipPath,willChange,transformOrigin",
+        });
+      };
+    },
+    { scope: sectionRef, dependencies: [label] },
   );
 
   useEffect(() => {
@@ -121,31 +218,36 @@ export default function MarqueeText({
 
   return (
     <section
+      ref={sectionRef}
       data-header-theme="dark"
       className={`gradient-bg-flow overflow-hidden px-8 py-6 text-white md:px-10 md:py-8 lg:px-16 lg:py-12 ${className}`}
       aria-label={label}
     >
-      <div
-        ref={trackRef}
-        className="flex w-max will-change-transform"
-        aria-hidden="true"
-      >
-        {[0, 1].map((groupIndex) => (
+      <div ref={revealMaskRef}>
+        <div ref={revealInnerRef}>
           <div
-            key={groupIndex}
-            ref={groupIndex === 0 ? groupRef : undefined}
-            className="flex shrink-0 items-center gap-8 pr-8 md:gap-10 md:pr-10 lg:gap-16 lg:pr-16"
+            ref={trackRef}
+            className="flex w-max will-change-transform"
+            aria-hidden="true"
           >
-            {items.map((index) => (
-              <span
-                key={`${groupIndex}-${index}`}
-                className="shrink-0 text-[44px] leading-[0.9] font-black tracking-[-0.04em] whitespace-nowrap text-white uppercase md:text-[80px] lg:text-[120px]"
+            {[0, 1].map((groupIndex) => (
+              <div
+                key={groupIndex}
+                ref={groupIndex === 0 ? groupRef : undefined}
+                className="flex shrink-0 items-center gap-8 pr-8 md:gap-10 md:pr-10 lg:gap-16 lg:pr-16"
               >
-                {label}
-              </span>
+                {items.map((index) => (
+                  <span
+                    key={`${groupIndex}-${index}`}
+                    className="shrink-0 text-[44px] leading-[0.9] font-black tracking-[-0.04em] whitespace-nowrap text-white uppercase md:text-[80px] lg:text-[120px]"
+                  >
+                    {label}
+                  </span>
+                ))}
+              </div>
             ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );

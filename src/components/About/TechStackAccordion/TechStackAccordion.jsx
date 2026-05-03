@@ -84,6 +84,7 @@ export default function TechStackAccordion() {
   return (
     <section
       data-header-theme="light"
+      data-scroll-reveal="sequence"
       className="min-h-dvh bg-white px-8 py-20 text-black md:px-10 md:py-24 lg:px-16 lg:py-32"
     >
       <svg className="absolute h-0 w-0" aria-hidden="true">
@@ -112,12 +113,12 @@ export default function TechStackAccordion() {
       </svg>
 
       <div className="grid w-full max-w-205 grid-cols-[40px_minmax(0,1fr)] gap-x-4 md:grid-cols-[120px_minmax(0,1fr)] md:gap-x-5 lg:grid-cols-[160px_minmax(0,1fr)]">
-        <h2 className="col-start-2 m-0 flex flex-col text-[44px] leading-[0.9] font-black tracking-[-0.04em] uppercase md:text-[80px] lg:text-[120px]">
+        <h2 data-reveal-part="title" className="col-start-2 m-0 flex flex-col text-[44px] leading-[0.9] font-black tracking-[-0.04em] uppercase md:text-[80px] lg:text-[120px]">
           <span>TOOLS</span>
           <span className="gradient-text-flow">I USE</span>
         </h2>
 
-        <div className="col-span-2 mt-8 border-t border-black/10 md:mt-10">
+        <div data-reveal-part="content" className="col-span-2 mt-8 border-t border-black/10 md:mt-10">
           {techGroups.map((item) => {
             const isOpen = openId === item.id;
             const Icon = item.Icon;

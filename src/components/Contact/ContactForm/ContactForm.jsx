@@ -32,52 +32,58 @@ export default function ContactForm() {
   return (
     <section
       data-header-theme="light"
+      data-scroll-reveal="sequence"
       className="min-h-dvh overflow-hidden bg-white px-8 py-20 text-black md:px-10 md:py-24 lg:px-16 lg:py-32"
       aria-labelledby="contact-form-title"
     >
       <div className="grid w-full grid-cols-[40px_minmax(0,1fr)] gap-x-4 md:grid-cols-[120px_minmax(0,1fr)] md:gap-x-5 lg:grid-cols-[160px_minmax(0,1fr)_160px] lg:items-start lg:gap-x-5">
-        <p className="m-0 flex items-center gap-2 self-start text-[13px] leading-none font-black tracking-[0.08em] text-black/55 uppercase md:text-sm">
-          <span
-            className="gradient-action-dot h-2 w-2 rounded-full"
-            aria-hidden="true"
-          />
-          Contact
+        <p data-reveal-part="kicker" className="m-0 flex items-center gap-2 self-start text-[13px] leading-none font-black tracking-[0.08em] text-black/55 uppercase md:text-sm">
+          <span data-reveal-inner className="inline-flex items-center gap-2">
+            <span
+              className="gradient-action-dot h-2 w-2 rounded-full"
+              aria-hidden="true"
+            />
+            Contact
+          </span>
         </p>
 
         <div className="col-span-2 mt-6 grid min-w-0 gap-8 md:mt-7 md:gap-10 lg:col-start-2 lg:col-span-1 lg:row-start-1 lg:mt-0 lg:grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] lg:items-start lg:gap-12">
           <div className="min-w-0">
             <h2
               id="contact-form-title"
+              data-reveal-part="title"
               className="m-0 text-[44px] leading-[0.9] font-black tracking-[-0.04em] uppercase md:text-[80px] lg:text-[120px]"
             >
-              Start
-              <br />
-              <span className="gradient-text-flow">Project</span>
+              <span className="block">Start</span>
+              <span className="gradient-text-flow block">Project</span>
             </h2>
 
-            <p className="m-0 mt-5 max-w-md text-[13px] leading-tight font-medium text-black/60 md:mt-7 md:text-sm">
-              Tell me what you want to build, where the project is right now,
-              and what kind of feeling the interface should carry. We can talk
-              through the screens, motion details, responsive flow and launch
-              priorities before shaping the cleanest frontend path.
-            </p>
+            <div data-reveal-part="content">
+              <p className="m-0 mt-5 max-w-md text-[13px] leading-tight font-medium text-black/60 md:mt-7 md:text-sm">
+                Tell me what you want to build, where the project is right now,
+                and what kind of feeling the interface should carry. We can talk
+                through the screens, motion details, responsive flow and launch
+                priorities before shaping the cleanest frontend path.
+              </p>
 
-            <div className="mt-7 grid max-w-xl grid-cols-2 gap-x-6 gap-y-4 border-t border-black/10 pt-5 md:mt-9 md:grid-cols-4">
-              {contactNotes.map(([number, label]) => (
-                <div key={label}>
-                  <span className="gradient-text-flow block text-[28px] leading-[0.82] font-black md:text-[30px] lg:text-[32px]">
-                    {number}
-                  </span>
+              <div className="mt-7 grid max-w-xl grid-cols-2 gap-x-6 gap-y-4 border-t border-black/10 pt-5 md:mt-9 md:grid-cols-4">
+                {contactNotes.map(([number, label]) => (
+                  <div key={label}>
+                    <span className="gradient-text-flow block text-[28px] leading-[0.82] font-black md:text-[30px] lg:text-[32px]">
+                      {number}
+                    </span>
 
-                  <span className="mt-2 block text-[10px] leading-none font-black tracking-[0.14em] text-black/45 uppercase">
-                    {label}
-                  </span>
-                </div>
-              ))}
+                    <span className="mt-2 block text-[10px] leading-none font-black tracking-[0.14em] text-black/45 uppercase">
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
           <form
+            data-reveal-part="content"
             className="relative grid min-w-0 border-t border-black/10 pt-5"
             aria-label="Project contact form"
             onSubmit={handleSubmit}
